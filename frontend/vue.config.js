@@ -3,6 +3,8 @@ module.exports = {
     "vuetify"
   ],
   devServer: {
+    host: '0.0.0.0',
+    allowedHosts: ['localhost', '.gitpod.io'],
     port: process.env.VUE_APP_PORT,
     proxy: {
       '/poa': {
