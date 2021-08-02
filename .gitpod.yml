@@ -1,0 +1,10 @@
+tasks:
+  - name: Hedera Theft Prevention Demo
+    init: echo -e "\033[1mPlease type in your testnet account credentials. You can get them by registering at https://portal.hedera.com\033[0m" && read -p 'Testnet Hedera Operator ID ' operatorid && read -p 'Testnet Hedera Private Key ID ' operatorpk && printf "HEDERA_OPERATOR_ID=%s\nHEDERA_OPERATOR_KEY=%s" $operatorid $operatorpk >> .env && echo -e "\033[1mYour credentials have been added to the .env file, you can change them anytime\033[0m" && docker-compose build && echo -e "\033[1mThe demo is ready and is available on port 8081\033[0m"
+    command: docker-compose up
+
+ports:
+  - port: 5000
+  - port: 8080
+  - port: 8081
+    onOpen: open-preview
